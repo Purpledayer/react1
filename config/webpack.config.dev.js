@@ -53,7 +53,9 @@ module.exports = {
         host : 'localhost',                                                 // 服务器的IP地址，可以使用IP也可以使用localhost
         compress : true,                                                    // 服务器端压缩是否开启
         port : 3000,                                                        // 配置服务端口 
-        open : false ,
+		open : false ,
+		inline: true,
+		historyApiFallback: true,
         stats: {
 			// 配置有用的信息
 			assets: true, 											// 添加资源信息
@@ -81,7 +83,7 @@ module.exports = {
 			context: "../src/",										// 用于缩短 request 的上下文目录
 			modulesSort: "field",									// 按指定的字段，对模块进行排序 你可以使用 `!field` 来反转排序。默认是按照 `id` 排序。
 			// maxModules: 15,											// 设置要显示的模块的最大数量
-
+			
 		},
 		proxy: {															// 接口代理规则
 			'/data/*': {

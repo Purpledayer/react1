@@ -16,8 +16,12 @@ module.exports = {
     },                                      
     output: {
         path: path.resolve(__dirname, '../dist'),                           // 必须使用绝对地址，输出文件夹
-        filename: "js/[name].js"                                            // 打包后输出文件的文件名
+        filename: "js/[name].js",                                           // 打包后输出文件的文件名
+        publicPath:'./../'
     },
+    resolve: {
+		extensions: ['.jsx','.js', '.json','.less'],
+	},
     module : {                                                              // 模块 ：例如解读css、图片转换、压缩
         rules : [															// css loader
 			{
@@ -34,7 +38,7 @@ module.exports = {
                     loader:'url-loader', 							        // 指定使用的loader和loader的配置参数
                     options:{
                         limit:500,  									    // 把小于500B的文件打成Base64的格式，写入JS
-                        outputPath:'images/'                                // 图片存储路径
+                        outputPath:'./images/'                                // 图片存储路径
                     }
                 }]
             },

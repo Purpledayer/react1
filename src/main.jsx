@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Index from './components/index';
-
+import AppRouter from './routes/router'
 ReactDOM.render(
-    <Index/>,
+    <AppRouter/>,
     document.getElementById('root')
 );

@@ -1,7 +1,6 @@
+import  React ,{ Component }from 'react';
 
-import React from 'react'
-
-export default class IndexSection extends React.Component{
+export default class IndexSection extends Component{
     constructor(props){
       super(props);
     }
