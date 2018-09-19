@@ -2,6 +2,8 @@
 const path = require('path')
 const webpack = require('webpack');                                         // 用于访问内置插件
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin") ;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
     entry: { main: './src/main.js' },                                       // 入口文件
     output: {
@@ -9,9 +11,37 @@ module.exports = {
         filename: "[name].js"                                               // 打包后输出文件的文件名
     },
     module : {                                                              // 模块 ：例如解读css、图片转换、压缩
-    },
+		rules : [															
+			{															 
+                test: /\.(css|less)$/,
+                use: [
+					{ loader: "style-loader" }, 
+					{ loader: "css-loader" },
+					{ loader: "less-loader" },
+					{ loader: "postcss-loader"},
+				]
+            },
+			{																// 图片路径
+				test:/\.(png|jpg|gif|jpeg)/,  								// 匹配图片文件后缀名称
+				use:[{
+					loader:'url-loader', 									// 指定使用的loader和loader的配置参数
+					options:{
+						limit:500,  										// 把小于500B的文件打成Base64的格式，写入JS
+					}
+				}]
+			},
+			{																// babel 配置
+				test:/\.(jsx|js)$/,
+				use:{
+					loader:'babel-loader',
+				},
+				exclude:/node_modules/
+			}
+		]
+	},
     plugins : [                                                             // 插件 用于生产模板等各项功能
-        new HtmlWebpackPlugin({template: './src/index.html'})
+		new HtmlWebpackPlugin({template: './src/index.html'}),
+		new BundleAnalyzerPlugin()
     ],
     devServer : {                                                           // 配置webpack开发服务功能
         contentBase : path.resolve(__dirname, '../build'),                  // 设置基本目录结构
