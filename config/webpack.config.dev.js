@@ -9,7 +9,10 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../build'),                          // 必须使用绝对地址，输出文件夹
         filename: "[name].js"                                               // 打包后输出文件的文件名
-    },
+	},
+	resolve: {
+		extensions: ['.jsx','.js', '.json','.less'],
+	},
     module : {                                                              // 模块 ：例如解读css、图片转换、压缩
 		rules : [															
 			{															 
@@ -41,7 +44,9 @@ module.exports = {
 	},
     plugins : [                                                             // 插件 用于生产模板等各项功能
 		new HtmlWebpackPlugin({template: './src/index.html'}),
-		new BundleAnalyzerPlugin()
+		new BundleAnalyzerPlugin({
+			openAnalyzer: false,
+		})
     ],
     devServer : {                                                           // 配置webpack开发服务功能
         contentBase : path.resolve(__dirname, '../build'),                  // 设置基本目录结构
