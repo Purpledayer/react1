@@ -82,6 +82,13 @@ module.exports = {
 			modulesSort: "field",									// 按指定的字段，对模块进行排序 你可以使用 `!field` 来反转排序。默认是按照 `id` 排序。
 			// maxModules: 15,											// 设置要显示的模块的最大数量
 
-    	},
+		},
+		proxy: {															// 接口代理规则
+			'/data/*': {
+				target: 'http://www.weather.com.cn/',
+				secure: false,
+				changeOrigin: true
+			}
+		}
     }
 }
