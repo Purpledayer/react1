@@ -11,7 +11,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');                 // �
 
 module.exports = {
     entry: {                                                                // 入口文件
-        main: path.resolve(__dirname,'../src/main.js'),      
+        main: path.resolve(__dirname,'../src/main.jsx'),      
         vendor : Object.keys(pkg.dependencies),                             // 将 第三方依赖 单独打包 打包线上依赖 --save命令安装的插件 在dependencies里
     },                                      
     output: {

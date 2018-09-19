@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin") ;
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
-    entry: { main: './src/main.js' },                                       // 入口文件
+    entry: { main: './src/main.jsx' },                                       // 入口文件
     output: {
         path: path.resolve(__dirname, '../build'),                          // 必须使用绝对地址，输出文件夹
         filename: "[name].js"                                               // 打包后输出文件的文件名
