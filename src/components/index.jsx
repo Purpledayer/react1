@@ -2,7 +2,8 @@ import  React ,{ Component }from 'react';
 import { Link } from 'react-router-dom'
 import IndexSection from './index_section';
 // 引入axios
-import {axiosGet} from '../util/axios'
+import {axiosGet} from '../util/axios';
+import { Button } from 'antd';
 import './../assets/style/less'
 
 export default class Index extends Component{
@@ -16,11 +17,14 @@ export default class Index extends Component{
 		});
 	};
 	render(){
+		console.log(111111,this.props.children);
 		return (
 			<div>
 				<h1>这是index.js</h1>
 				<IndexSection name={this.state.name} age={this.state.age}/>
 				<Link to="/SubPage">asdassd</Link> 
+				<Link to="/admin">admin</Link> 
+				<Button type="primary">Primary</Button>
 			</div>
 		);
 	}
