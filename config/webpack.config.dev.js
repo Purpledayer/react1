@@ -33,6 +33,10 @@ module.exports = {
 					}
 				}]
 			},
+			{                                                                                           // 引用字体和文件
+                test: /\.(eot|ttf|woff|svg)$/,
+                use: 'file-loader'
+            },
 			{																// babel 配置
 				test:/\.(jsx|js)$/,
 				use:{

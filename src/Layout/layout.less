@@ -1,0 +1,65 @@
+.layout-sider-background{
+    background: #3860F4;
+    .logo-layout {
+        height: 32px;
+        background: rgba(255,255,255,.2);
+        margin: 16px;
+    }
+    .ant-menu-dark{
+        background: #3860F4; 
+        >li{
+            padding: 0px !important;
+            text-align: center;
+            height: 74px;
+            margin: 0px !important;
+            >a{
+                height: 100%;
+                padding-top: 15px;
+                >img,>span{
+                    display: block;
+                    line-height: initial;
+                }
+                >img{
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 5px;
+                }
+                span{
+                    font-size:14px;
+                    font-weight:400;
+                    line-height:20px;
+                }
+            }
+        }
+        .ant-menu-submenu{
+            >div {
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+                height: 100%;
+                >span{
+                    display: block;
+                    height: 100%;
+                    padding-top: 15px;
+                    >img,>span{
+                        display: block;
+                        line-height: initial;
+                    }
+                    span{
+                        font-size:14px;
+                        font-weight:400;
+                        line-height:20px;
+                    }
+                    >img{
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+        .ant-menu-submenu-selected{
+            background: #1890ff;
+        }
+    }
+    
+}
