@@ -55,13 +55,18 @@ module.exports = {
             },
             {                                                                                           // 引用字体和文件
                 test: /\.(eot|ttf|woff|svg)$/,
-                use: 'file-loader'
+                use:[{
+                    loader:'file-loader',
+                    options:{
+                        outputPath:'./images/' 
+                    }
+                }] 
             },
 		]
     },
     plugins : [                                                             // 插件 用于生产模板等各项功能
         new CleanWebpackPlugin(path.resolve(__dirname, '../dist'), {        // 用于在构建前清除dist目录中的内容
-            root: path.resolve(__dirname, '../'),                           // 设置root
+            root: path.resolve(__dirname, './'),                           // 设置root
             verbose: true
         }),
         // new uglify(),                                                       // js压缩插件
