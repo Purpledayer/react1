@@ -17,7 +17,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'),                           // 必须使用绝对地址，输出文件夹
         filename: "js/[name].js",                                           // 打包后输出文件的文件名
-        publicPath:'./../'
+        publicPath:'./'
     },
     resolve: {
 		extensions: ['.jsx','.js', '.json','.less'],
