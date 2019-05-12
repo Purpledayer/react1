@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon ,Badge ,Popover, Avatar} from 'antd';
 
 const SubMenu = Menu.SubMenu;
 const { Header, Sider, Content } = Layout;
-import {Link,BrowserRouter as Router} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './layout.less'
 
 import shouye from './../assets/icon/shouye.svg'
@@ -14,11 +14,21 @@ import xiangmu from './../assets/icon/xiangmu.svg'
 import jifei from './../assets/icon/jifei.svg'
 import quanxian from './../assets/icon/quanxian.svg'
 
+const content = (
+	<div>
+	  <p>Content</p>
+	  <p>Content</p>
+	</div>
+  );
+
+ 
+
+
 export default class MyLayout extends Component {
 	constructor(props){
 		super(props);
 		this.state = { collapsed: false, };
-    }
+  	}
 
 	toggle = () => {
 		this.setState({
@@ -63,6 +73,17 @@ export default class MyLayout extends Component {
 				<Layout>
 					<Header style={{ background: '#fff', padding: 0 }}>
 						{/* <Icon className="trigger" type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.toggle} /> */}
+						{/* 			超过 overflowCount 的会显示为 ${overflowCount}+，默认的 overflowCount 为 99 */}
+						<div style={{float:'right'}}>
+							<Badge count={99} overflowCount={10} showZero className="ant-badge-header">
+
+								<a href="#" className="head-example" ><Icon type="bell" /></a>
+							</Badge>
+							<Popover trigger="hover" placement="bottom"  content={content} >
+								<Avatar icon="user" />用户名<Icon type="caret-down" />
+							</Popover>
+						</div>
+						
 					</Header>
 					<Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
 						{this.props.children}

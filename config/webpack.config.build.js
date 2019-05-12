@@ -3,7 +3,7 @@ const pkg = require('../package.json');
 const path = require('path')
 const webpack = require('webpack');                                         // 用于访问内置插件
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const uglify = require('uglifyjs-webpack-plugin');                          // js 压缩插件
+// const uglify = require('uglifyjs-webpack-plugin');                          // js 压缩插件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin") ;
 const glob = require('glob');                                               // 为检查html模板 引入node的glob对象
 const PurifyCSSPlugin = require("purifycss-webpack");                       // 消除未使用的CSS
@@ -52,7 +52,11 @@ module.exports = {
 					loader:'babel-loader',
 				},
 				exclude:/node_modules/
-			}
+            },
+            {                                                                                           // 引用字体和文件
+                test: /\.(eot|ttf|woff|svg)$/,
+                use: 'file-loader'
+            },
 		]
     },
     plugins : [                                                             // 插件 用于生产模板等各项功能
@@ -60,7 +64,7 @@ module.exports = {
             root: path.resolve(__dirname, '../'),                           // 设置root
             verbose: true
         }),
-        new uglify(),                                                       // js压缩插件
+        // new uglify(),                                                       // js压缩插件
         new MiniCssExtractPlugin({
         　　filename: "css/[name].[chunkhash:8].css",
         　　 chunkFilename: "[id].css"
